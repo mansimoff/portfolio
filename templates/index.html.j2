@@ -220,7 +220,7 @@
         </ul>
 
         <ul class="cert-list">
-          {% for p in grp.entries %}
+          {% for p in certificate_groups %}
           {# Ссылка рендерится, только если url задан — иначе <a href=""> невалиден
              и ведёт в никуда. Без url карточка — просто не кликабельный блок. #}
           <li class="cert-item active" data-filter-item data-category="{{ p.category|lower }}">
