@@ -1,14 +1,9 @@
-# portfolio
+# Site-portfolio
 
 Классическое портфолио: сайдбар с фото/контактами + 5 табов (About, Resume,
 Portfolio, Certificates, Contact), переключаемых без перезагрузки страницы.
-Архитектура — та же, что в твоём резюме: один YAML-файл → HTML через `build.py`.
 
 Хостится как **project page**: `https://<username>.github.io/portfolio/`
-(в отличие от резюме — оно user page, в корне домена). Поэтому все пути в
-проекте относительные (`style.css`, не `/style.css`) — не трогай это при
-правках, иначе сайт сломается именно в GitHub Pages (локально через
-`python -m http.server` разницы не заметишь).
 
 ## Быстрый старт
 

@@ -212,22 +212,30 @@
     <article class="page certificates" data-page="certificates">
       <header><h2 class="h2 page-title">Certificates</h2></header>
 
-      {% for grp in certificate_groups %}
-      <section class="cert-group">
-        <h3 class="h3 cert-group-title">{{ grp.group }}</h3>
+      <section class="certificates">
+        <ul class="filter-list">
+          {% for cat in certificate_groups %}
+          <li class="filter-item"><button data-filter-btn data-filter="{{ cat|lower }}">{{ cat }}</button></li>
+          {% endfor %}
+        </ul>
+
         <ul class="cert-list">
-          {% for c in grp.entries %}
-          <li class="cert-item" data-cert-trigger
-              data-img="{{ c.image }}" data-title="{{ c.title }}"
-              data-issuer="{{ c.issuer }}" data-year="{{ c.year }}">
-            <figure class="cert-img"><img src="{{ c.image }}" alt="{{ c.title }}" loading="lazy"></figure>
-            <p class="cert-title">{{ c.title }}</p>
-            <p class="cert-meta">{{ c.issuer }}{% if c.issuer and c.year %} · {% endif %}{{ c.year }}</p>
+          {% for p in grp.entries %}
+          {# Ссылка рендерится, только если url задан — иначе <a href=""> невалиден
+             и ведёт в никуда. Без url карточка — просто не кликабельный блок. #}
+          <li class="cert-item active" data-filter-item data-category="{{ p.category|lower }}">
+            {% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{% else %}<div>{% endif %}
+              <figure class="project-img">
+                <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">
+              </figure>
+              <h3 class="certificate_groups-title">{{ p.title }}</h3>
+              <p class="certificate_groups-category">{{ p.category }}</p>
+              <p class="certificate_groups-description">{{ p.description }}</p>
+            {% if p.url %}</a>{% else %}</div>{% endif %}
           </li>
           {% endfor %}
         </ul>
       </section>
-      {% endfor %}
     </article>
 
     <!-- ---------- CONTACT ---------- -->
@@ -238,7 +246,7 @@
         <ul class="contact-list">
           {% if contacts.email %}<li><a href="mailto:{{ contacts.email }}">{{ icons.mail }} {{ contacts.email }}</a></li>{% endif %}
           {% if socials.telegram %}<li><a href="{{ socials.telegram }}" target="_blank" rel="noopener">{{ icons.telegram }} Telegram</a></li>{% endif %}
-          {% if socials.telegram %}<li><a href="{{ socials.linkedin }}" target="_blank" rel="noopener">{{ icons.telegram }} LinkedIn</a></li>{% endif %}          
+          {% if socials.telegram %}<li><a href="{{ socials.linkedin }}" target="_blank" rel="noopener">{{ icons.linkedin }} LinkedIn</a></li>{% endif %}          
         </ul>
       </section>
     </article>
