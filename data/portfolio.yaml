@@ -119,7 +119,7 @@ certificate_groups:
       - title: "Основы Git и GitHub"
         issuer: "Stepik"
         date: "2025"
-        image: "assets/certificates/git-stepik.jpg
+        image: "assets/certificates/git-stepik.jpg"
 
   - group: "Sport"
     entries:
