@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ name }} — Portfolio</title>
+  <meta name="description" content="{{ title }}">
+
+  <meta property="og:title" content="{{ name }} — Portfolio">
+  <meta property="og:description" content="{{ title }}">
+  <meta property="og:image" content="{{ photo }}">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================== SIDEBAR ============================== -->
+  <aside class="sidebar" data-sidebar>
+    <div class="sidebar-top">
+      <figure class="avatar-box">
+        <img src="{{ photo }}" alt="{{ name }}" width="110" height="110">
+      </figure>
+      <div class="info">
+        <h1 class="name">{{ name }}</h1>
+        <p class="title">{{ title }}</p>
+      </div>
+      <button class="info_more-btn" data-sidebar-btn>
+        <span>Контакты</span>
+        <svg class="icon-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar-info" data-sidebar-info>
+      <ul class="contacts-list">
+        {% if contacts.email %}
+        <li class="contact-item">
+          {{ icons.mail }}
+          <div class="contact-info">
+            <p class="contact-title">Email</p>
+            <a href="mailto:{{ contacts.email }}" class="contact-link">{{ contacts.email }}</a>
+          </div>
+        </li>
+        {% endif %}
+        {% if contacts.phone %}
+        <li class="contact-item">
+          {{ icons.phone }}
+          <div class="contact-info">
+            <p class="contact-title">Телефон</p>
+            <a href="tel:{{ contacts.phone }}" class="contact-link">{{ contacts.phone }}</a>
+          </div>
+        </li>
+        {% endif %}
+        <li class="contact-item">
+          {{ icons.location }}
+          <div class="contact-info">
+            <p class="contact-title">Локация</p>
+            <address>{{ contacts.location }}</address>
+          </div>
+        </li>
+        {% if contacts.birthday %}
+        <li class="contact-item">
+          {{ icons.calendar }}
+          <div class="contact-info">
+            <p class="contact-title">Дата рождения</p>
+            <p>{{ contacts.birthday }}</p>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+
+      <div class="separator"></div>
+
+      <ul class="social-list">
+        {% if socials.github %}<li><a href="{{ socials.github }}" target="_blank" rel="noopener" aria-label="GitHub">{{ icons.github }}</a></li>{% endif %}
+        {% if socials.telegram %}<li><a href="{{ socials.telegram }}" target="_blank" rel="noopener" aria-label="Telegram">{{ icons.telegram }}</a></li>{% endif %}
+        {% if socials.linkedin %}<li><a href="{{ socials.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">{{ icons.linkedin }}</a></li>{% endif %}
+      </ul>
+
+      {% if resume_url %}
+      <a class="resume-link" href="{{ resume_url }}" target="_blank" rel="noopener">{{ icons.file }} Полное резюме / PDF</a>
+      {% endif %}
+    </div>
+  </aside>
+
+  <!-- ============================== MAIN ============================== -->
+  <main>
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li class="navbar-item"><button class="navbar-link active" data-nav-link data-target="about">About</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="resume">Resume</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="portfolio">Portfolio</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="certificates">Certificates</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="contact">Contact</button></li>
+      </ul>
+    </nav>
+
+    <!-- ---------- ABOUT ---------- -->
+    <article class="page about active" data-page="about">
+      <header><h2 class="h2 page-title">About me</h2></header>
+      <section class="about-text">
+        <p>{{ about.intro }}</p>
+      </section>
+
+      <section class="service">
+        <h3 class="h3 service-title">What I'm doing</h3>
+        <ul class="service-list">
+          {% for s in about.services %}
+          <li class="service-item">
+            <div class="service-icon-box">{{ icons[s.icon] }}</div>
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">{{ s.title }}</h4>
+              <p class="service-item-text">{{ s.description }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </article>
+
+    <!-- ---------- RESUME ---------- -->
+    <article class="page resume" data-page="resume">
+      <header><h2 class="h2 page-title">Resume</h2></header>
+
+      <section class="timeline">
+        <div class="title-wrapper">
+          <div class="icon-box">{{ icons.school }}</div>
+          <h3 class="h3">Education</h3>
+        </div>
+        <ol class="timeline-list">
+          {% for ed in education %}
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">{{ ed.degree }}</h4>
+            <span>{{ ed.period }}</span>
+            <p class="timeline-text">{{ ed.org }}</p>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <section class="timeline">
+        <div class="title-wrapper">
+          <div class="icon-box">{{ icons.briefcase }}</div>
+          <h3 class="h3">Experience</h3>
+        </div>
+        <ol class="timeline-list">
+          {% for job in experience %}
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">{{ job.role }} — {{ job.org }}</h4>
+            <span>{{ job.period }}</span>
+            <p class="timeline-text">{{ job.description }}</p>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <section class="skill">
+        <h3 class="h3 skills-title">Skills</h3>
+        <ul class="skills-list content-card">
+          {% for sk in skills %}
+          <li class="skills-item">
+            <div class="title-wrapper">
+              <h5 class="h5">{{ sk.name }}</h5>
+              <span class="skill-percent">{{ sk.level }}%</span>
+            </div>
+            <div class="skill-progress-bg">
+              <div class="skill-progress-fill" style="width: {{ sk.level }}%;"></div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </article>
+
+    <!-- ---------- PORTFOLIO ---------- -->
+    <article class="page portfolio" data-page="portfolio">
+      <header><h2 class="h2 page-title">Portfolio</h2></header>
+
+      <section class="projects">
+        <ul class="filter-list">
+          <li class="filter-item"><button class="active" data-filter-btn data-filter="all">All</button></li>
+          {% for cat in project_categories %}
+          <li class="filter-item"><button data-filter-btn data-filter="{{ cat|lower }}">{{ cat }}</button></li>
+          {% endfor %}
+        </ul>
+
+        <ul class="project-list">
+          {% for p in projects %}
+          {# Ссылка рендерится, только если url задан — иначе <a href=""> невалиден
+             и ведёт в никуда. Без url карточка — просто не кликабельный блок. #}
+          <li class="project-item active" data-filter-item data-category="{{ p.category|lower }}">
+            {% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{% else %}<div>{% endif %}
+              <figure class="project-img">
+                <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">
+              </figure>
+              <h3 class="project-title">{{ p.title }}</h3>
+              <p class="project-category">{{ p.category }}</p>
+              <p class="project-description">{{ p.description }}</p>
+            {% if p.url %}</a>{% else %}</div>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </article>
+
+    <!-- ---------- CERTIFICATES ---------- -->
+    <article class="page certificates" data-page="certificates">
+      <header><h2 class="h2 page-title">Certificates</h2></header>
+
+      {% for grp in certificate_groups %}
+      <section class="cert-group">
+        <h3 class="h3 cert-group-title">{{ grp.group }}</h3>
+        <ul class="cert-list">
+          {% for c in grp.entries %}
+          <li class="cert-item" data-cert-trigger
+              data-img="{{ c.image }}" data-title="{{ c.title }}"
+              data-issuer="{{ c.issuer }}" data-year="{{ c.year }}">
+            <figure class="cert-img"><img src="{{ c.image }}" alt="{{ c.title }}" loading="lazy"></figure>
+            <p class="cert-title">{{ c.title }}</p>
+            <p class="cert-meta">{{ c.issuer }}{% if c.issuer and c.year %} · {% endif %}{{ c.year }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </article>
+
+    <!-- ---------- CONTACT ---------- -->
+    <article class="page contact" data-page="contact">
+      <header><h2 class="h2 page-title">Contact</h2></header>
+      <section class="contact-text">
+        <p>{{ contact_note }}</p>
+        <ul class="contact-list">
+          {% if contacts.email %}<li><a href="mailto:{{ contacts.email }}">{{ icons.mail }} {{ contacts.email }}</a></li>{% endif %}
+          {% if socials.telegram %}<li><a href="{{ socials.telegram }}" target="_blank" rel="noopener">{{ icons.telegram }} Telegram</a></li>{% endif %}
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <!-- Лайтбокс для сертификатов — одна разметка, данные подставляет JS -->
+  <div class="lightbox" data-lightbox>
+    <button class="lightbox-close" data-lightbox-close aria-label="Закрыть">{{ icons.close }}</button>
+    <figure class="lightbox-content">
+      <img src="" alt="" data-lightbox-img>
+      <figcaption>
+        <strong data-lightbox-title></strong>
+        <span data-lightbox-meta></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

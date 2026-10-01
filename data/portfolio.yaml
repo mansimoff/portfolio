@@ -1,0 +1,148 @@
+# ==============================================================================
+# portfolio.yaml — единственный источник данных. HTML не редактируется руками,
+# он рендерится из этого файла через build.py (см. README.md).
+# ==============================================================================
+
+name: "Ruslan Mansimov"              
+title: "Unix-админ / DevOps / SRE Engineer"
+photo: "assets/photo.jpg"       # квадратное фото, от 400×400px, см. README
+
+# Контакты в сайдбаре. Пустое значение — строка не рендерится.
+contacts:
+  email: "r.mansimoff@ya.ru"       
+  phone: ""                     #  можно оставить пустым
+  location: "Санкт-Петербург, Россия"
+  birthday: "7 апреля 2004"                  # , формат "15 марта 1998", можно пустым
+
+# Иконки берутся по ключу (github/telegram/linkedin) — см. templates/index.html.j2.
+# Пустая ссылка — иконка не рендерится.
+socials:
+  github: "https://github.com/mansimoff"
+  telegram: "https://t.me/ruslan4ik_707"
+  linkedin: "https://www.linkedin.com/in/%D1%80%D1%83%D1%81%D0%BB%D0%B0%D0%BD-%D0%BC%D0%B0%D0%BD%D1%81%D0%B8%D0%BC%D0%BE%D0%B2-404a2943b"
+
+resume_url: "https://mansimoff.github.io/"
+
+# ------------------------------------------------------------------------------
+# ВКЛАДКА "ОБО МНЕ"
+# ------------------------------------------------------------------------------
+about:
+  intro: >
+    Unix-админ, DevOps/SRE, работаю на стыке инфраструктуры, автоматизации
+    и безопасности в fintech-компании с требованиями PCI DSS. Параллельно
+    учусь в магистратуре по машинному и глубокому обучению — двигаюсь в сторону
+    DevOps, backend-разработки и ML.
+  # Карточки "чем занимаюсь" — ровно 4 штуки ложатся в сетку 2x2 аккуратнее всего,
+  # но можно больше/меньше — сетка резиновая.
+  services:
+    - icon: "server"       # server | shield | code | brain — см. templates (набор иконок ограничен этими 4, см. README чтобы добавить свою)
+      title: "System Administration"
+      description: "Виртуализация, настройка сети, безопасность, бэкап, мониторинг"
+    - icon: "shield"
+      title: "DevOps & Automation"
+      description: "Bash, Ansible, GitLab CI/CD, Terraform, Kubernetus, Docker"
+    - icon: "server"
+      title: "SRE & Observability"
+      description: "Zabbix, Prometheus, Grafana — наблюдаемость и инциденты, troubleshooting"
+    - icon: "brain"
+      title: "Backend & ML"
+      description: "C/C++, Go, Java, Java; ML/DL"
+
+# ------------------------------------------------------------------------------
+# ВКЛАДКА "RESUME" — короткая версия; полная — по ссылке resume_url
+# ------------------------------------------------------------------------------
+education:
+  - degree: "Магистратура, 11.04.02 (ML/DL для тактильного интернета)"
+    org: "СПбГУТ им. проф. М. А. Бонч-Бруевича"
+    period: "2026 — н.в."
+  - degree: "Бакалавриат, 09.03.01 Информатика и вычислительная техника"
+    org: "СПбГУТ им. проф. М. А. Бонч-Бруевича"
+    period: "2022-2026"
+
+experience:
+  - role: "Unix-админ / DevOps / SRE Engineer"
+    org: "Paygine"     
+    period: "2025 — н.в."        
+    description: "Администрирование и настройка серверов, "
+
+skills:
+  - name: "Linux"
+    level: 90
+  - name: "Automation"
+    level: 85
+  - name: "Network"
+    level: 80
+  - name: "Programming"
+    level: 60
+  - name: "Machine Learning"
+    level: 40
+
+# ------------------------------------------------------------------------------
+# ВКЛАДКА "PORTFOLIO" — проекты. category используется для фильтра на странице.
+# ------------------------------------------------------------------------------
+project_categories: ["Infra/Automation", "Web", SysAdm]
+
+projects:
+  - title: "Server Audit Tool"
+    category: "Infra/Automation"
+    image: "assets/projects/audit-tool.jpg"   
+    description: "Автоматизированный аудит линукс сервера на соответствие PCI DSS и дальнейшая ремидиация (openscap)"
+    url: "https://github.com/mansimoff/openscap"
+  - title: "User Management Automation"
+    category: "Infra/Automation"
+    image: "assets/projects/user-mgmt.jpg"    
+    description: "Автоматизация управления пользователями на серверах"
+    url: "https://github.com/mansimoff/linux_management_users"
+  - title: "FitTech Investment Calculator"
+    category: "Web"
+    image: "assets/projects/fittech.jpg"    
+    description: "Калькулятор инвестиций на vanilla JS: Chart.js для графиков, jsPDF с поддержкой кириллицы для экспорта, SheetJS для Excel"
+    url: "https://mansimoff.github.io/web_investment_calculator/" 
+  - title: "Linux"
+    category: "SysAdm"
+    image: "assets/projects/Linux.jpg"      
+    description: "Всё про линукс и администрирование"
+    url: "https://github.com/mansimoff/Linux"  
+
+# ------------------------------------------------------------------------------
+# ВКЛАДКА "CERTIFICATES" — группы задаются сами, порядок — как в списке ниже.
+# Каждая группа — отдельная секция на странице с собственной сеткой.
+# ------------------------------------------------------------------------------
+certificate_groups:
+  - group: "IT и профессиональные курсы"
+    entries:
+      - title: "Название курса/сертификата"   
+        issuer: "Платформа/организация"        
+        year: "2024"
+        image: "assets/certificates/it-1.jpg"  
+      # - title: "..."
+      #   issuer: "..."
+      #   year: "..."
+      #   image: "assets/certificates/it-2.jpg"
+
+  - group: "Хакатоны"
+    entries:
+      - title: "Название хакатона"   
+        issuer: "Организатор"
+        year: "2024"
+        image: "assets/certificates/hackathon-1.jpg"  
+
+  - group: "Спорт"
+    entries:
+      - title: "Название достижения"  
+        issuer: ""
+        year: ""
+        image: "assets/certificates/sport-1.jpg"  
+
+  - group: "Школа"
+    entries:
+      - title: "Название"  
+        issuer: ""
+        year: ""
+        image: "assets/certificates/school-1.jpg"  
+
+# ------------------------------------------------------------------------------
+# ВКЛАДКА "CONTACT"
+# ------------------------------------------------------------------------------
+contact_note: >
+  Открыт к разным предложениям. Проще всего писать в Telegram.
