@@ -109,37 +109,37 @@ projects:
 # Каждая группа — отдельная секция на странице с собственной сеткой.
 # ------------------------------------------------------------------------------
 certificate_groups:
-  - group: "IT и профессиональные курсы"
+  - group: "IT"
     entries:
-      - title: "Название курса/сертификата"   
-        issuer: "Платформа/организация"        
-        year: "2024"
-        image: "assets/certificates/it-1.jpg"  
-      # - title: "..."
-      #   issuer: "..."
-      #   year: "..."
-      #   image: "assets/certificates/it-2.jpg"
+      - title: "Ansible"
+        issuer: "Stepik"
+        date: "2025"
+        image: "assets/certificates/ansible-stepik.jpg"
+        description: ""
+      - title: "Основы Git и GitHub"
+        issuer: "Stepik"
+        date: "2025"
+        image: "assets/certificates/git-stepik.jpg
 
-  - group: "Хакатоны"
+  - group: "Sport"
     entries:
-      - title: "Название хакатона"   
-        issuer: "Организатор"
-        year: "2024"
-        image: "assets/certificates/hackathon-1.jpg"  
-
-  - group: "Спорт"
-    entries:
-      - title: "Название достижения"  
+      - title: "Первенство Росси по армретслингу"
+        issuer: "Министерство Спорта РФ"
+        date: "2019"
+        image: "assets/certificates/Sport_Russia.jpg"
+        description: "Описание (можно оставить пустым)"
+      - title: "Первенство Мира по армретслингу"
         issuer: ""
-        year: ""
-        image: "assets/certificates/sport-1.jpg"  
+        date: "2019"
+        image: "assets/certificates/Sport_World.jpg"
+        description: ""
 
-  - group: "Школа"
+  - group: "Live"
     entries:
-      - title: "Название"  
+      - title: "Шествие в Параде 9 мая"
         issuer: ""
-        year: ""
-        image: "assets/certificates/school-1.jpg"  
+        date: "2021"
+        image: "assets/certificates/Марш.jpg"
 
 # ------------------------------------------------------------------------------
 # ВКЛАДКА "CONTACT"

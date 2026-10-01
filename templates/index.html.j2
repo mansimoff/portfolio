@@ -212,31 +212,40 @@
     <article class="page certificates" data-page="certificates">
       <header><h2 class="h2 page-title">Certificates</h2></header>
 
-      <section class="certificates">
-        <ul class="filter-list">
-          {% for cat in certificate_groups %}
-          <li class="filter-item"><button data-filter-btn data-filter="{{ cat|lower }}">{{ cat }}</button></li>
-          {% endfor %}
-        </ul>
+      <section class="projects">
 
-        <ul class="cert-list">
-          {% for p in certificate_groups %}
-          {# Ссылка рендерится, только если url задан — иначе <a href=""> невалиден
-             и ведёт в никуда. Без url карточка — просто не кликабельный блок. #}
-          <li class="cert-item active" data-filter-item data-category="{{ p.category|lower }}">
-            {% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{% else %}<div>{% endif %}
-              <figure class="project-img">
-                <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">
-              </figure>
-              <h3 class="certificate_groups-title">{{ p.title }}</h3>
-              <p class="certificate_groups-category">{{ p.category }}</p>
-              <p class="certificate_groups-description">{{ p.description }}</p>
-            {% if p.url %}</a>{% else %}</div>{% endif %}
+        <ul class="filter-list">
+          {# Кнопка "All" НЕ нужна — активна первая вкладка #}
+          {% for g in certificate_groups %}
+          <li class="filter-item">
+            <button {% if loop.first %}class="active" {% endif %}data-filter-btn data-filter="{{ g.group|lower }}">{{ g.group }}</button>
           </li>
           {% endfor %}
         </ul>
+
+        <ul class="project-list">
+          {% for g in certificate_groups %}
+            {% for e in g.entries %}
+            <li class="project-item active" data-filter-item data-category="{{ g.group|lower }}">
+              {% if e.url %}<a href="{{ e.url }}" target="_blank" rel="noopener">{% else %}<div>{% endif %}
+                {% if e.image %}
+                <figure class="project-img">
+                  <img src="{{ e.image }}" alt="{{ e.title or 'certificate' }}" loading="lazy">
+                </figure>
+                {% endif %}
+                {% if e.title %}<h3 class="project-title">{{ e.title }}</h3>{% endif %}
+                {% if e.issuer %}<p class="project-category">{{ e.issuer }}</p>{% endif %}
+                {% if e.date %}<p class="project-category">{{ e.date }}</p>{% endif %}
+                {% if e.description %}<p class="project-description">{{ e.description }}</p>{% endif %}
+              {% if e.url %}</a>{% else %}</div>{% endif %}
+            </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+
       </section>
     </article>
+    
 
     <!-- ---------- CONTACT ---------- -->
     <article class="page contact" data-page="contact">
