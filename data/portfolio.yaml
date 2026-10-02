@@ -3,16 +3,16 @@
 # он рендерится из этого файла через build.py (см. README.md).
 # ==============================================================================
 
-name: "Ruslan Mansimov"              
+name: "Ruslan Mansimov"
 title: "Unix-админ / DevOps / SRE Engineer"
 photo: "assets/photo.jpg"       # квадратное фото, от 400×400px, см. README
 
 # Контакты в сайдбаре. Пустое значение — строка не рендерится.
 contacts:
-  email: "r.mansimoff@ya.ru"       
-  phone: ""                     #  можно оставить пустым
+  email: "r.mansimoff@ya.ru"
+  phone: ""                     # можно оставить пустым
   location: "Санкт-Петербург, Россия"
-  birthday: "7 апреля 2004"                  # , формат "15 марта 1998", можно пустым
+  birthday: "7 апреля 2004"     # формат "15 марта 1998", можно пустым
 
 # Иконки берутся по ключу (github/telegram/linkedin) — см. templates/index.html.j2.
 # Пустая ссылка — иконка не рендерится.
@@ -40,13 +40,13 @@ about:
       description: "Виртуализация, настройка сети, безопасность, бэкап, мониторинг"
     - icon: "shield"
       title: "DevOps & Automation"
-      description: "Bash, Ansible, GitLab CI/CD, Terraform, Kubernetus, Docker"
+      description: "Bash, Ansible, GitLab CI/CD, Terraform, Kubernetes, Docker"
     - icon: "server"
       title: "SRE & Observability"
       description: "Zabbix, Prometheus, Grafana — наблюдаемость и инциденты, troubleshooting"
     - icon: "brain"
       title: "Backend & ML"
-      description: "C/C++, Go, Java, Java; ML/DL"
+      description: "C/C++, Go, Java, ML/DL, Python"
 
 # ------------------------------------------------------------------------------
 # ВКЛАДКА "RESUME" — короткая версия; полная — по ссылке resume_url
@@ -61,9 +61,9 @@ education:
 
 experience:
   - role: "Unix-админ / DevOps / SRE Engineer"
-    org: "Paygine"     
-    period: "2025 — н.в."        
-    description: "Администрирование и настройка серверов, "
+    org: "Paygine"
+    period: "2025 — н.в."
+    description: "Администрирование и настройка серверов"
 
 skills:
   - name: "Linux"
@@ -80,33 +80,34 @@ skills:
 # ------------------------------------------------------------------------------
 # ВКЛАДКА "PORTFOLIO" — проекты. category используется для фильтра на странице.
 # ------------------------------------------------------------------------------
-project_categories: ["Infra/Automation", "Web", SysAdm]
+project_categories: ["Infra/Automation", "Web", "SysAdm"]
 
 projects:
   - title: "Server Audit Tool"
     category: "Infra/Automation"
-    image: "assets/projects/audit-tool.jpg"   
+    image: "assets/projects/audit-tool.jpg"
     description: "Автоматизированный аудит линукс сервера на соответствие PCI DSS и дальнейшая ремидиация (openscap)"
     url: "https://github.com/mansimoff/openscap"
   - title: "User Management Automation"
     category: "Infra/Automation"
-    image: "assets/projects/user-mgmt.jpg"    
+    image: "assets/projects/user-mgmt.jpg"
     description: "Автоматизация управления пользователями на серверах"
     url: "https://github.com/mansimoff/linux_management_users"
   - title: "FitTech Investment Calculator"
     category: "Web"
-    image: "assets/projects/fittech.jpg"    
+    image: "assets/projects/fittech.jpg"
     description: "Калькулятор инвестиций на vanilla JS: Chart.js для графиков, jsPDF с поддержкой кириллицы для экспорта, SheetJS для Excel"
-    url: "https://mansimoff.github.io/web_investment_calculator/" 
+    url: "https://mansimoff.github.io/web_investment_calculator/"
   - title: "Linux"
     category: "SysAdm"
-    image: "assets/projects/Linux.jpg"      
+    image: "assets/projects/Linux.jpg"
     description: "Всё про линукс и администрирование"
-    url: "https://github.com/mansimoff/Linux"  
+    url: "https://github.com/mansimoff/Linux"
 
 # ------------------------------------------------------------------------------
 # ВКЛАДКА "CERTIFICATES" — группы задаются сами, порядок — как в списке ниже.
 # Каждая группа — отдельная секция на странице с собственной сеткой.
+# Любое поле можно оставить пустым ("") или удалить — страница не сломается.
 # ------------------------------------------------------------------------------
 certificate_groups:
   - group: "IT"
@@ -123,12 +124,12 @@ certificate_groups:
 
   - group: "Sport"
     entries:
-      - title: "Первенство Росси по армретслингу"
+      - title: "Первенство России по армрестлингу"
         issuer: "Министерство Спорта РФ"
         date: "2019"
         image: "assets/certificates/Sport_Russia.jpg"
-        description: "Описание (можно оставить пустым)"
-      - title: "Первенство Мира по армретслингу"
+        description: ""
+      - title: "Первенство Мира по армрестлингу"
         issuer: ""
         date: "2019"
         image: "assets/certificates/Sport_World.jpg"
