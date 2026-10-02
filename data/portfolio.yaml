@@ -117,10 +117,23 @@ certificate_groups:
         date: "2025"
         image: "assets/certificates/ansible-stepik.jpg"
         description: ""
+
       - title: "Основы Git и GitHub"
         issuer: "Stepik"
         date: "2025"
         image: "assets/certificates/git-stepik.jpg"
+
+      - title: "Телеком Стартап"
+        issuer: "СПБГУТ"
+        date: "2023"
+        image: "assets/certificates/telecom_startup.jpg"
+        description: "Тренинг создания стартапа"
+
+      - title: "Конкурс сайта портфолио"
+        issuer: "МинОбр РТ"
+        date: "2021"
+        image: "assets/certificates/web-site.jpg"
+        description: ""
 
   - group: "Sport"
     entries:
@@ -129,18 +142,45 @@ certificate_groups:
         date: "2019"
         image: "assets/certificates/Sport_Russia.jpg"
         description: ""
+
       - title: "Первенство Мира по армрестлингу"
         issuer: ""
         date: "2019"
         image: "assets/certificates/Sport_World.jpg"
         description: ""
 
+      - title: "Первенство Приволжского Федерального Округа"
+        issuer: ""
+        date: "2019"
+        image: "assets/certificates/ПФО.jpg"
+        description: ""
+
+      - title: "Первенство Республики Татарстан"
+        issuer: "Министерство спорта РТ"
+        date: "2019"
+        image: "assets/certificates/РТ.jpg"
+        description: ""
+
   - group: "Live"
     entries:
       - title: "Шествие в Параде 9 мая"
-        issuer: ""
+        issuer: "Центр Образования"
         date: "2021"
         image: "assets/certificates/Марш.jpg"
+        description: "Неоднократно принимал участие в шествии на параде 9 мая"
+
+      - title: "Благодарственное письмо"
+        issuer: "Администрация Нижнекамского района"
+        date: "2019"
+        image: "assets/certificates/благодар_письмо_нк.jpg"
+        description: "За достижения в спорте"
+
+      - title: "Благодарственное письмо"
+        issuer: "Администрация Калининского района"
+        date: "2025"
+        image: "assets/certificates/БлагодарственноеПисьмоКалининский.jpg"
+        description: "За успехи в работе тренером по атлетической гимнатсике и армрестлингу"
+
 
 # ------------------------------------------------------------------------------
 # ВКЛАДКА "CONTACT"
